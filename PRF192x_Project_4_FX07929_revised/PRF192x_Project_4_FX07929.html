@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="PRF192x_Project_4_FX07929.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container d-flex justify-content-center">
+        <div class="image">
+            <img id="i1" src="img/FUNiX-10nguyentac-slide1.png" alt="1">
+        </div>
+        <div class="image">
+            <img id="i2" src="img/funix-bai-dang-1024x620.jpg" alt="2">
+        </div>
+        <div class="image">
+            <img id="i3" src="img/FUNiX-International-logo.png" alt="3">
+        </div>
+        <div class="image">
+            <img id="i4" src="img/xisotop-1573806274.jpg" alt="4">
+        </div>
+    </div>
+
+    <div>
+        <div class="container d-flex justify-content-center">
+            <div class="prev">
+                < Prev</div>
+                    <div class="button" id="b1">1</div>
+                    <div class="button" id="b2">2</div>
+                    <div class="button" id="b3">3</div>
+                    <div class="button" id="b4">4</div>
+                    <div class="next">Next ></div>
+            </div>
+        </div>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+        <script>
+
+            // tra cuu de map button sang img
+            // var look_up = {
+            //     "b1": 1
+            //     , "b2": 2
+            //     , "b3": 3
+            //     , "b4": 4
+            // };
+
+            // // tra cuu tu vi tri hien tai - 1 sang img
+            // var look_up_inverse = {
+            //     0: "i4",
+            //     1: "i1",
+            //     2: "i2",
+            //     3: "i3"
+            // };
+            // bien de luu vi tri hien tai
+            var img_no;
+            var img_no_;
+
+            // xac dinh vi tri hien tai
+            $("img").each(function (index) {
+                if ($(this).css('display') != 'none') {
+                    // img_no = $(this).attr("id");
+                    img_no_ = index;
+                }
+            });
+
+            // Jquery cho button
+            $(".button").on("click", function (event) {
+                // $("#" + img_no).hide();
+                // $(".button").css("background-color","cornflowerblue");
+                // var x = (look_up[$(this).attr("id")]);
+
+                // $("#i" + x).show(1500);
+                // // .css("display", "inline");
+                // // console.log(x);
+                // img_no = "i" + x;
+                // // console.log(img_no);
+                // $(this).css("background-color","green");
+                $(".button").removeClass("active");
+                $("img").eq(img_no_).hide();
+                $("img").eq(this.innerText - 1).show()
+                    .css("display", "inline");
+                img_no_ = this.innerText - 1;
+                $(this).addClass("active");
+                console.log(img_no_);
+                console.log($("img").eq(this.innerText - 1))
+            });
+            
+            // Jquery cho nut prev
+            $(".prev").on("click", function (event) {
+                // var y = look_up_inverse[Math.abs((parseInt(img_no.substr(1)) - 1) % 4)];
+                // $("#" + img_no).hide();
+                // $("#" + y).show(1500);
+                // img_no = y;
+                $(".button").removeClass("active");
+                $("img").eq(img_no_).hide();
+
+                if (img_no_ - 1 < 0) {
+                    img_no_ = $(".button").length-1;
+                } else {
+                    img_no_ = img_no_ - 1;
+                }
+                $("img").eq(img_no_).show()
+                    .css("display", "inline");
+                $(".button").eq(img_no_).addClass("active");
+                console.log(img_no_);
+                console.log($("img").eq(this.innerText - 1))
+
+
+            })
+
+            // Jquerry cho nut next
+            $(".next").on("click", function (event) {
+                // var n = look_up_inverse[Math.abs((parseInt(img_no.substr(1)) + 1) % 4)];
+                // $("#" + img_no).hide();
+                // $("#" + n).show(1500);
+                // img_no = n;
+
+                $(".button").removeClass("active");
+                $("img").eq(img_no_).hide();
+
+                if (img_no_ + 1 >= $(".button").length) {
+                    img_no_ = 0;
+                } else {
+                    img_no_ = img_no_ + 1;
+                }
+                $("img").eq(img_no_).show()
+                    .css("display", "inline");
+                $(".button").eq(img_no_).addClass("active");
+                console.log(img_no_);
+                console.log($("img").eq(this.innerText - 1))
+
+            })
+        </script>
+</body>
+
+</html>

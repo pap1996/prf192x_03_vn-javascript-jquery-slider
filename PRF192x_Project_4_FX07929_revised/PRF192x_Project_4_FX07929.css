@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+img {
+    width: 100%;
+}
+
+#i3, #i4, #i2 {
+    display: none;
+}
+.button {
+    border: 1px solid black;
+    border-radius: 50%;
+    width: 40px;
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+    font-weight: bold;
+    background-color: cornflowerblue;
+}
+
+.active {
+    border: 1px solid black;
+    border-radius: 50%;
+    width: 40px;
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+    font-weight: bold;
+    background-color:aqua;
+}
+
+.prev, .next {
+    border: 1px solid black;
+    border-radius: 10%;
+    width: 90px;
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+    background-color: rgb(147, 172, 218);
+}
