@@ -101,7 +101,7 @@
                 console.log(img_no_);
                 console.log($("img").eq(this.innerText - 1))
             });
-            
+
             // Jquery cho nut prev
             $(".prev").on("click", function (event) {
                 // var y = look_up_inverse[Math.abs((parseInt(img_no.substr(1)) - 1) % 4)];
@@ -112,7 +112,7 @@
                 $("img").eq(img_no_).hide();
 
                 if (img_no_ - 1 < 0) {
-                    img_no_ = $(".button").length-1;
+                    img_no_ = $(".button").length - 1;
                 } else {
                     img_no_ = img_no_ - 1;
                 }
